@@ -1,2 +1,2 @@
-{{ $paginator := .Paginate (where (where .Site.Pages "Type" "post") "IsPage" true) }}
+{{ $paginator := .Paginate (where (where .Site.Pages "Type" "notes") "IsPage" true) }}
 {{ partial "posts.html" . }}
