@@ -4,6 +4,10 @@
     header.intro-header {
         background-image: url('{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ .Site.Params.header_image | relURL}}{{ end }}')
     }
+    /* utterances response chatbox */
+    .utterances {
+    max-width: 100%;
+    }
 </style>
 {{ if eq .Params.headerstyle "text" }}
 <header class="intro-header style-text" >
@@ -100,9 +104,17 @@
                     {{ end }}
                 </ul>
                 {{ end }}
-
+                <!-- utteracnes chatbox -->
+                <script src="https://utteranc.es/client.js"
+                    repo="MingLunWu/MingLunWu.github.io"
+                    issue-term="title"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+                </script>
                 {{ partial "comments.html" . }}
             </div>
+
 
             <!-- Side Catalog Container -->
             {{ if not (eq (.Param "showtoc") false) }}
@@ -127,6 +139,24 @@
                 col-md-10 col-md-offset-1
                 sidebar-container">
 
+                <!--Related Posts-->
+                <!--TODO: Add Related Pages-->
+                <!-- <section>
+                    <div class="column max-800px">
+                        <div class="content">
+                            <h2>Related content</h2>
+                        </div>
+                        
+                        <div class="columns">
+                            {{ $related := (where (.Site.RegularPages.Related .) "Type" "notes") | first 3 }}
+                            {{ range $related }}
+                            <div class="column is-one-third">
+                                {{ partial "related.html" . }}
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </section> -->
                 <!-- Featured Tags -->
                 {{ if .Site.Params.featured_tags }}
                 <section>
