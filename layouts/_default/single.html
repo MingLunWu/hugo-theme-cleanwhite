@@ -104,6 +104,16 @@
                     {{ end }}
                 </ul>
                 {{ end }}
+                <hr>
+                <!-- Related Content -->
+                <div class="content">
+                    <h2>See also :</h2>
+                    {{ $related := (where (.Site.RegularPages.Related .) "Type" "notes") | first 3 }}
+                    {{ range $related }}
+                    {{ partial "related.html" . }}
+                    {{ end }}
+                </div>
+                <hr>
                 <!-- utteracnes chatbox -->
                 <script src="https://utteranc.es/client.js"
                     repo="MingLunWu/MingLunWu.github.io"
@@ -114,8 +124,6 @@
                 </script>
                 {{ partial "comments.html" . }}
             </div>
-
-
             <!-- Side Catalog Container -->
             {{ if not (eq (.Param "showtoc") false) }}
             <div class="
@@ -138,25 +146,6 @@
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 sidebar-container">
-
-                <!--Related Posts-->
-                <!--TODO: Add Related Pages-->
-                <!-- <section>
-                    <div class="column max-800px">
-                        <div class="content">
-                            <h2>Related content</h2>
-                        </div>
-                        
-                        <div class="columns">
-                            {{ $related := (where (.Site.RegularPages.Related .) "Type" "notes") | first 3 }}
-                            {{ range $related }}
-                            <div class="column is-one-third">
-                                {{ partial "related.html" . }}
-                            </div>
-                            {{ end }}
-                        </div>
-                    </div>
-                </section> -->
                 <!-- Featured Tags -->
                 {{ if .Site.Params.featured_tags }}
                 <section>
