@@ -104,10 +104,11 @@
                     {{ end }}
                 </ul>
                 {{ end }}
-                <hr>
+                
                 <!-- Related Content -->
-                <div class="content">
-                    <h2>See also :</h2>
+                <hr>
+                <div class="">
+                    <h2>See Also</h2>
                     {{ $related := (where (.Site.RegularPages.Related .) "Type" "notes") | first 3 }}
                     {{ range $related }}
                     {{ partial "related.html" . }}
