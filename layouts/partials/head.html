@@ -92,7 +92,6 @@
 
 </head>
 
-{{ if .Site.GoogleAnalytics }}
+{{ if and (.Site.GoogleAnalytics) (not .Site.IsServer) }}
 {{ template "_internal/google_analytics.html" . }}
 {{ end }}
-
